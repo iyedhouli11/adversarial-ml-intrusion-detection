@@ -1,0 +1,46 @@
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw, intermediate, and processed datasets
+data/raw/
+data/interim/
+data/processed/
+*.pcap
+*.pcapng
+*.cap
+
+# Generated experiment outputs
+results/generated/
+results/metrics/
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+credentials*.json
+
+# Logs and local tooling
+*.log
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
