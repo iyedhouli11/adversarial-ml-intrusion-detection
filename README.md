@@ -14,13 +14,11 @@ Les expériences seront hors ligne, reproductibles et réalisées uniquement sur
 ## État actuel
 
 - Dépôt Git local indépendant initialisé sur la branche `main` ;
-- CIC-IDS2017 retenu comme candidat provisoire ;
-- protocole de baseline et d'évaluation préparé ;
-- modèle de menace et audit de contrôlabilité en préparation ;
-- aucune donnée téléchargée ;
-- aucun modèle entraîné et aucun résultat expérimental produit.
-
-Le découpage lundi-mercredi / jeudi / vendredi reste provisoire jusqu'à l'inspection des métadonnées et à l'audit du nombre d'échantillons malveillants correctement détectés.
+- CNS2022 `CICIDS2017_improved.zip` sélectionné et vérifié ;
+- cinq CSV journaliers extraits dans `data/raw/CICIDS2017_improved/` ;
+- audit metadata-only exécuté et rapport généré ;
+- aucun modèle entraîné et aucun résultat de classification produit ;
+- le découpage lundi-mercredi / jeudi / vendredi reste provisoire.
 
 ## Structure prévue
 
@@ -30,6 +28,8 @@ src/        logique réutilisable de données, modèles, attaques et évaluation
 notebooks/  exploration et expériences reproductibles
 tests/      tests des contraintes et des fonctions principales
 results/    figures et résumés sélectionnés, jamais les données brutes
+requirements.txt      dépendances runtime minimales
+requirements-dev.txt  dépendances optionnelles pour Jupyter
 ```
 
 Les données brutes, intermédiaires et traitées sont exclues par `.gitignore`.
@@ -39,6 +39,61 @@ Les données brutes, intermédiaires et traitées sont exclues par `.gitignore`.
 La comparaison comprendra une régression logistique, une forêt aléatoire et XGBoost. Les métriques principales seront la matrice de confusion, précision, rappel, F1-score, PR-AUC, temps d'entraînement et temps d'inférence. Les opérations apprises seront ajustées sur l'entraînement uniquement et le test final ne sera utilisé qu'une fois.
 
 L'attaque initiale sera une recherche aléatoire de perturbations bornées dans l'espace des caractéristiques, avec un budget maximal de 1 000 requêtes par échantillon. Une modification de ligne CSV ne sera pas présentée comme une modification de paquets réseau sans reconstruction et vérification supplémentaires.
+
+## Phase 3 — audit initial du dataset
+
+Dataset : [CIC-IDS2017 Improved — CNS2022](https://intrusion-detection.distrinet-research.be/CNS2022/CICIDS2017.html).
+L'archive officielle est `CICIDS2017_improved.zip`. Les cinq CSV sont extraits
+dans `data/raw/CICIDS2017_improved/`. Les données brutes sont ignorées par Git
+et ne doivent jamais être commit ou poussées.
+
+### Installation runtime
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+### Audit reproductible
+
+Depuis la racine du projet :
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data.audit_dataset
+```
+
+Le rapport agrégé est généré dans
+`docs/dataset_audit_report.md`. Il ne contient pas d'échantillons bruts. Les
+résultats actuels décrivent les cinq jours, les labels, le schéma, les valeurs
+manquantes ou infinies, les doublons candidats et la faisabilité du split.
+
+### Acquisition et extraction
+
+L'archive officielle est disponible à :
+
+```text
+https://intrusion-detection.distrinet-research.be/CNS2022/Datasets/CICIDS2017_improved.zip
+```
+
+La taille vérifiée est `343549013` octets. L'extraction doit produire
+`monday.csv`, `tuesday.csv`, `wednesday.csv`, `thursday.csv` et `friday.csv`
+dans `data/raw/CICIDS2017_improved/`. L'archive, les CSV bruts et les données
+traitées restent hors Git.
+
+### Notebook
+
+Le notebook peut être lu et ses cellules ont été validées séquentiellement avec
+le `.venv`. L'exécution native par Jupyter n'est pas encore installée dans
+l'environnement runtime. Après approbation séparée, les dépendances de
+développement prévues sont :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m jupyter nbconvert --to notebook --execute --inplace notebooks\01_dataset_audit.ipynb
+```
+
+Les outputs du notebook doivent rester agrégés et ne jamais contenir de lignes
+brutes du dataset.
 
 ## Reproductibilité
 

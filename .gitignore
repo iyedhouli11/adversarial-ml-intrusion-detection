@@ -21,6 +21,8 @@ ENV/
 data/raw/
 data/interim/
 data/processed/
+*.zip
+*.csv
 *.pcap
 *.pcapng
 *.cap
