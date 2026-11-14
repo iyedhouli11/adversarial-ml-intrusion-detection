@@ -18,7 +18,11 @@ Les expériences seront hors ligne, reproductibles et réalisées uniquement sur
 - cinq CSV journaliers extraits dans `data/raw/CICIDS2017_improved/` ;
 - audit metadata-only exécuté et rapport généré ;
 - aucun modèle entraîné et aucun résultat de classification produit ;
-- le découpage lundi-mercredi / jeudi / vendredi reste provisoire.
+- Phase 4.1 : pipeline de preprocessing implémenté, testé (14 tests) et validé
+  sur train et validation uniquement ; le vendredi n'a pas été utilisé ;
+- le découpage lundi-mercredi / jeudi / vendredi reste provisoire : train et
+  validation ne partagent aucune famille d'attaque (voir
+  `docs/preprocessing_report.md`).
 
 ## Structure prévue
 
@@ -29,7 +33,7 @@ notebooks/  exploration et expériences reproductibles
 tests/      tests des contraintes et des fonctions principales
 results/    figures et résumés sélectionnés, jamais les données brutes
 requirements.txt      dépendances runtime minimales
-requirements-dev.txt  dépendances optionnelles pour Jupyter
+requirements-dev.txt  outils de développement : ruff, et Jupyter (optionnel)
 ```
 
 Les données brutes, intermédiaires et traitées sont exclues par `.gitignore`.
@@ -94,6 +98,24 @@ développement prévues sont :
 
 Les outputs du notebook doivent rester agrégés et ne jamais contenir de lignes
 brutes du dataset.
+
+## Phase 4.1 : preprocessing sans fuite
+
+Statut : implémenté et validé sur train + validation. Aucun modèle entraîné.
+
+- Protocole : `docs/preprocessing_protocol.md`
+- Rapport (chiffres observés) : `docs/preprocessing_report.md`
+- Code : `src/data/dataset_loader.py`, `src/data/preprocessing.py`
+- Vérification sur données réelles : `python -m src.data.check_preprocessing_real`
+
+### Tests et qualité
+
+    .\.venv\Scripts\python.exe -m pip install ruff==0.17.5
+    .\.venv\Scripts\python.exe -m unittest discover -s tests
+    .\.venv\Scripts\python.exe -m ruff check src tests
+
+`ruff check src tests` signale encore 2 remarques de style dans
+`src/data/audit_dataset.py` (fichier de la Phase 3, non modifié ici).
 
 ## Reproductibilité
 

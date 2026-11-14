@@ -1,3 +1,4 @@
-# Optional native notebook execution; not installed during Phase 3.1.
+# Development tools. Jupyter lines are optional and not installed yet; ruff is the linter.
 jupyter==1.1.1
 ipykernel==7.4.0
+ruff==0.17.5
