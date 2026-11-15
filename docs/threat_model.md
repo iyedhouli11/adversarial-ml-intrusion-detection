@@ -72,3 +72,20 @@ Le modèle de menace, l'attaque, le durcissement et leur évaluation sont réali
 - **Dépendance du modèle** : `Bwd Packet Length Std` pèse 0,6068 du gain XGBoost (configuration profondeur 6, 200 arbres de la Phase 4.4 ;
   à recalculer pour la configuration retenue). Variable côté serveur dans l'hypothèse ci-dessus : si elle tient, la surface d'attaque est
   réduite, et un faible taux d'évasion serait un résultat du modèle de menace, pas un échec de l'attaque.
+
+## Profil du détecteur cible sur la validation (observé)
+
+**Observé** (`src/models/selected_detector_profile.py`). XGBoost max_depth 3, n_estimators 100, learning_rate 0,1, graine 42, stratégie `exclude`,
+seuil 0,5, ajusté sur le segment train. Segment test, jeudi et vendredi non chargés.
+
+- Attaques de validation : 32 144 ; détectées à 0,5 : 32 108 ; manquées : 36 (25 GoldenEye, 7 Hulk, 2 Slowhttptest, 2 Heartbleed).
+- Dénominateur par famille : Hulk 28 517 ; GoldenEye 1 337 ; Slowloris 695 ; FTP-Patator 715 ; SSH-Patator 533 ; Slowhttptest 311 ; Heartbleed 0.
+- Scores des attaques détectées (quantiles 5 % / 50 % / 95 %) : Hulk 0,9995 / 0,9999 / 0,9999 ; GoldenEye 0,9603 / 0,9999 / 0,9999 ;
+  Slowhttptest 0,7587 / 0,9972 / 0,9972 ; Slowloris 0,9842 / 0,9970 / 0,9972 ; FTP-Patator 0,9966 / 0,9970 / 0,9970 ; SSH-Patator 0,9638 / 0,9944 / 0,9948.
+- Importances (gain) : `Bwd Packet Length Std` 0,5572 ; `Packet Length Mean` 0,0550 ; `Packet Length Std` 0,0431 ; `Bwd IAT Max` 0,0415 ;
+  `Fwd IAT Max` 0,0331 ; `Fwd Seg Size Min` 0,0315 ; `Total TCP Flow Time` 0,0113. Regroupement par nom : bwd 0,7211 ; fwd 0,0881 ; other 0,1908.
+- La valeur 0,6068 citée plus haut concerne la configuration de la Phase 4.4 (profondeur 6, 200 arbres) ; pour la configuration retenue : 0,5572.
+
+**Hypothèses, non démontrées** : détections à forte confiance ; scores constants par morceaux (arbres peu profonds) ; dépendance forte au côté serveur,
+qui réduirait la surface d'attaque d'un attaquant limité à Fwd ; `Bwd Packet Length Std` pourrait refléter une signature du serveur victime ;
+`Fwd Seg Size Min` à reclasser (taille d'en-tête possible).
