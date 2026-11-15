@@ -88,3 +88,30 @@ Cette analyse est réalisée individuellement après l'inspection du schéma ré
 | Constantes | trois variables URG, `Subflow Bwd Packets` | sans objet | aucune information |
 
 **Limites** : la classification est un jugement à valider, pas une mesure ; l'inclusion dans le détecteur reste une décision séparée.
+
+## Relations mesurées, deuxième lot (segment train, lundi-mercredi)
+
+**Observé** (`src/data/feature_relations_more.py`). Validation, test, jeudi et vendredi non chargés.
+
+- `Packet Length Variance` = variance poolée avec correction n-1 (moyennes, écarts-types et comptes Fwd/Bwd) : tient sur 100 % des lignes ;
+  la formule avec n : 8,07 %.
+- `Packet Length Min` = minimum sur les directions non vides : 100 % ; `Flow IAT Mean` x (paquets-1) = `Flow Duration` : 100 % ;
+  `Fwd IAT Mean` x (Fwd-1) = `Fwd IAT Total` et idem Bwd : 100 % ; `PSH`/`RST Flag Count` = somme Fwd + Bwd : 100 % ;
+  `Flow IAT Min` <= Mean <= Max <= `Flow Duration` : 100 %.
+- `Subflow Fwd/Bwd Bytes` ne sont pas des totaux : relation vraie sur 3,82 % / 5,50 % des lignes seulement, soit la part de zéros
+  de `Total Length of Fwd/Bwd Packet` (déduction). Signification non établie.
+- `Total TCP Flow Time` > `Flow Duration` : 30 658 lignes (4,37 %), toutes TCP (9,09 % des flux TCP, 0 en UDP ou autres protocoles),
+  rapport médian 35,4 ; par famille : BENIGN 3,93 %, DoS Hulk 6,11 %, DoS Slowhttptest 29,02 %, DoS Slowloris 42,25 %, Patator 0 %.
+  Les familles `Attempted` à 85-96 % ont 7 à 48 flux.
+
+**Hypothèse, non testée** : `Flow Duration` plafonne à 1,2e8 us (120 s) ; `Total TCP Flow Time` monte à environ 18 900 s. Elle pourrait mesurer
+la connexion entière au-delà de l'enregistrement de flux, donc dépendre d'autres flux. À tester en ablation.
+
+**Mise à jour de la classification**
+- Recalculables (formules vérifiées) : totaux, débits, `Down/Up Ratio`, `Packet Length Mean/Max/Min/Std/Variance`, copies exactes,
+  `Flow IAT Mean`, `Fwd/Bwd IAT Mean`, compteurs PSH et RST.
+- Bornes d'ordre seulement : `Flow IAT Min/Max`, `Fwd/Bwd IAT Min/Max`.
+- Non recalculables : `IAT Std`, `Active*`, `Idle*`, `Bulk*`, `Subflow*`, `Total TCP Flow Time` (non modifiable).
+
+**Limite** : les variables non recalculables seraient gardées à leur valeur d'origine lors d'une perturbation ; le réalisme est alors
+seulement partiel, ce qui doit figurer dans le rapport final.
