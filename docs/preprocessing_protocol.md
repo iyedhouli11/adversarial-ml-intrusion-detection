@@ -95,3 +95,25 @@ numpy 2.4.6
 pandas 3.1.1
 scikit-learn 1.8.0
 ```
+
+## Découpage temporel par strate, lundi-mercredi (décision provisoire)
+
+**Observé** (`src/data/label_timeline_train_days.py`, lundi-mercredi uniquement) : dans une même journée,
+les attaques sont lancées dans des fenêtres étroites. Les 20 % finaux des trois jours contiennent environ
+238 000 flux dont 12 attaques (1 SSH-Patator et 11 Heartbleed). Un découpage 80/20 chronologique par jour
+est donc inutilisable.
+
+**Méthode** (`src/data/temporal_split.py`) : chaque strate (jour × label) est ordonnée par temps puis
+coupée à 60 % (entraînement), 20 % (validation), 20 % (test), avec un intervalle de 1 % de chaque côté
+des coupures (4,0 % des lignes retirées). Seuls `Timestamp` et `Label` sont lus pour décider du découpage.
+
+**Observé** : toutes les grandes familles sont présentes dans les trois segments ; la part d'attaques est
+de 0,15 partout, par construction. Heartbleed 7 / 2 / 2 flux : trop peu pour une métrique par famille.
+
+**Rôle des jeux (provisoire)**
+- Jeudi : étude du décalage de distribution (résultats déjà publiés : régression logistique, forêt).
+- Segments train / validation du découpage par strate : développement du projet d'évasion.
+- Segment test du découpage par strate et vendredi : non utilisés jusqu'à l'évaluation finale.
+
+**Limites** : borne optimiste (flux d'une même campagne similaires malgré l'intervalle) ;
+les flux BENIGN de test viennent d'heures différentes de celles des attaques ; doublons exacts à mesurer.
