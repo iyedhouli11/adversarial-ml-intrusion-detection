@@ -17,7 +17,7 @@ Les expériences seront hors ligne, reproductibles et réalisées uniquement sur
 - CNS2022 `CICIDS2017_improved.zip` sélectionné et vérifié ;
 - cinq CSV journaliers extraits dans `data/raw/CICIDS2017_improved/` ;
 - audit metadata-only exécuté et rapport généré ;
-- aucun modèle entraîné et aucun résultat de classification produit ;
+- Phase 4.2 : baseline de régression logistique entraînée (lundi-mercredi) et évaluée sur la validation (jeudi) ; aucun résultat sur le vendredi ;
 - Phase 4.1 : pipeline de preprocessing implémenté, testé (14 tests) et validé
   sur train et validation uniquement ; le vendredi n'a pas été utilisé ;
 - le découpage lundi-mercredi / jeudi / vendredi reste provisoire : train et
