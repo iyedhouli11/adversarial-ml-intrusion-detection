@@ -56,3 +56,19 @@ Une perturbation CSV n'est pas automatiquement une modification de trafic réali
 ## Organisation du travail
 
 Le modèle de menace, l'attaque, le durcissement et leur évaluation sont réalisés séquentiellement par l'auteur du projet. Les paramètres sont gelés avant le test final et les résultats sont conservés avec leur configuration exacte.
+
+
+## Précisions issues de la Phase 4 (décisions provisoires, à confirmer)
+
+- **Détecteur cible provisoire** : XGBoost, configuration retenue par la règle déclarée (profondeur 3, 100 arbres) ; forêt et régression
+  logistique réservées à l'extension « transfert ».
+- **Seuil de décision** : 0,5, figé. Évasion réussie = score < 0,5 pour un flux de cible 1 initialement détecté (score >= 0,5).
+- **Dénominateur du taux d'évasion** : flux de cible 1 détectés à 0,5 par le modèle cible. Exclus : les flux `Attempted` (cible 0) et les
+  attaques déjà non détectées (36 faux négatifs en validation pour la configuration retenue).
+- **Familles attaquées** : à justifier dans le rapport (DoS volumétrique, DoS lent, force brute) ; non décidé.
+- **Référence « sans effort »** : le test « une famille retirée » montre qu'un changement de famille échappe déjà au détecteur dans
+  plusieurs cas (rappel 0 pour les deux Patator, partiel pour les DoS) ; point de comparaison pour l'attaque contrainte.
+- **Hypothèse à valider** : attaquant = client initiateur (Fwd = attaquant, Bwd = serveur) ; les ports sont cohérents avec elle sans la prouver.
+- **Dépendance du modèle** : `Bwd Packet Length Std` pèse 0,6068 du gain XGBoost (configuration profondeur 6, 200 arbres de la Phase 4.4 ;
+  à recalculer pour la configuration retenue). Variable côté serveur dans l'hypothèse ci-dessus : si elle tient, la surface d'attaque est
+  réduite, et un faible taux d'évasion serait un résultat du modèle de menace, pas un échec de l'attaque.
