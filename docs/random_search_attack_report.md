@@ -35,7 +35,7 @@ sauf DoS Slowhttptest à A = 1 et A = 2 : 2/300 = 0,67 % (0,18 à 2,40 %). Au to
 - Espace de perturbation à deux paramètres : 2 000 tirages le couvrent presque entièrement, le plafond de 1 000 requêtes ne contraint pas.
 - Les tirages aléatoires peuvent manquer des coins ou des arêtes du domaine : à vérifier par une grille déterministe.
 - Échantillon de 300 flux par famille ; le rappel après attaque est une estimation.
-- L'ordre entre le commit de la spécification v1 et la première exécution n'est pas démontré par l'historique Git (le script d'attaque est commité après son exécution).
+- La spécification v1 n'était pas commitée avant la première exécution : elle est enregistrée rétroactivement (voir docs/attack_specification.md). Ses paramètres sont ceux du script, mais l'historique Git ne prouve pas qu'ils ont été fixés avant de voir les résultats.
 - Attaque dans l'espace des caractéristiques ; variables non recalculables gelées ; mesure sur la validation uniquement.
 
 ## Planifié
