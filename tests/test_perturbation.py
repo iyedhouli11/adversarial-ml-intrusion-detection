@@ -139,6 +139,18 @@ class PerturbationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             perturb(self.frame, 1.0, 0.5)
 
+    def test_per_row_factors_match_row_by_row_scalar_calls(self) -> None:
+        s = np.array([1.0, 2.5])
+        t = np.array([3.0, 1.0])
+        vector = perturb(self.frame, s, t)
+        rows = [perturb(self.frame.iloc[[i]], float(s[i]), float(t[i])) for i in range(2)]
+        expected = pd.concat(rows, ignore_index=True)
+        self.assert_frames_close(vector.reset_index(drop=True), expected)
+
+    def test_per_row_factors_must_match_row_count(self) -> None:
+        with self.assertRaises(ValueError):
+            perturb(self.frame, np.array([1.0, 2.0, 3.0]), 1.0)
+
     def test_input_frame_is_not_modified(self) -> None:
         before = self.frame.copy(deep=True)
         perturb(self.frame, 2.0, 2.0)

@@ -66,8 +66,17 @@ def _ratio(
 
 def perturb(features: pd.DataFrame, s: float, t: float) -> pd.DataFrame:
     """Return a perturbed copy; the input frame is never modified."""
-    if not (np.isfinite(s) and np.isfinite(t)) or s < 1.0 or t < 1.0:
+    s_arr = np.asarray(s, dtype="float64")
+    t_arr = np.asarray(t, dtype="float64")
+    if not (np.isfinite(s_arr).all() and np.isfinite(t_arr).all()):
         raise ValueError("s and t must be finite and >= 1 (padding and delay only)")
+    if (s_arr < 1.0).any() or (t_arr < 1.0).any():
+        raise ValueError("s and t must be finite and >= 1 (padding and delay only)")
+    for factor in (s_arr, t_arr):
+        if factor.ndim > 1 or (factor.ndim == 1 and len(factor) != len(features)):
+            raise ValueError("s and t must be scalars or 1-D arrays with one value per row")
+    s = float(s_arr) if s_arr.ndim == 0 else s_arr
+    t = float(t_arr) if t_arr.ndim == 0 else t_arr
 
     out = features.copy(deep=True)
 
@@ -84,7 +93,7 @@ def perturb(features: pd.DataFrame, s: float, t: float) -> pd.DataFrame:
     for column in SCALED_BY_T:
         new[column] = g(column) * t
 
-    duration = g("Flow Duration") + (t - 1.0) * g("Fwd IAT Total")
+    duration = g("Flow Duration") + g("Fwd IAT Total") * (t - 1.0)
     new["Flow Duration"] = duration
     fwd_len = new["Total Length of Fwd Packet"]
 
