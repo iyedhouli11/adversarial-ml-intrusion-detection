@@ -46,3 +46,6 @@ credentials*.json
 .idea/
 Thumbs.db
 .DS_Store
+
+# Final aggregated results (no raw data)
+!results/final/*.csv
