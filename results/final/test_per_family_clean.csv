@@ -1,0 +1,43 @@
+detector,state,family,n,recall
+LogReg,original,DoS GoldenEye,1437,0.9039665970772442
+LogReg,original,DoS Hulk,30108,0.9988375182675701
+LogReg,original,DoS Slowhttptest,330,0.3333333333333333
+LogReg,original,DoS Slowloris,733,0.7557980900409277
+LogReg,original,FTP-Patator,754,0.9946949602122016
+LogReg,original,Heartbleed,2,1.0
+LogReg,original,SSH-Patator,562,0.9110320284697508
+LogReg,hardened,DoS GoldenEye,1437,0.9011830201809325
+LogReg,hardened,DoS Hulk,30108,0.9990368008502724
+LogReg,hardened,DoS Slowhttptest,330,0.33636363636363636
+LogReg,hardened,DoS Slowloris,733,0.8212824010914052
+LogReg,hardened,FTP-Patator,754,0.9946949602122016
+LogReg,hardened,Heartbleed,2,1.0
+LogReg,hardened,SSH-Patator,562,0.9252669039145908
+RandomForest,original,DoS GoldenEye,1437,0.9986082115518441
+RandomForest,original,DoS Hulk,30108,0.999767503653514
+RandomForest,original,DoS Slowhttptest,330,0.4575757575757576
+RandomForest,original,DoS Slowloris,733,0.6139154160982264
+RandomForest,original,FTP-Patator,754,0.986737400530504
+RandomForest,original,Heartbleed,2,0.0
+RandomForest,original,SSH-Patator,562,0.9412811387900356
+RandomForest,hardened,DoS GoldenEye,1437,1.0
+RandomForest,hardened,DoS Hulk,30108,0.9998007174172977
+RandomForest,hardened,DoS Slowhttptest,330,0.5060606060606061
+RandomForest,hardened,DoS Slowloris,733,0.6139154160982264
+RandomForest,hardened,FTP-Patator,754,0.986737400530504
+RandomForest,hardened,Heartbleed,2,0.0
+RandomForest,hardened,SSH-Patator,562,0.9412811387900356
+XGBoost,original,DoS GoldenEye,1437,1.0
+XGBoost,original,DoS Hulk,30108,0.9997010761259466
+XGBoost,original,DoS Slowhttptest,330,0.8303030303030303
+XGBoost,original,DoS Slowloris,733,0.7503410641200545
+XGBoost,original,FTP-Patator,754,0.9946949602122016
+XGBoost,original,Heartbleed,2,0.0
+XGBoost,original,SSH-Patator,562,0.9412811387900356
+XGBoost,hardened,DoS GoldenEye,1437,1.0
+XGBoost,hardened,DoS Hulk,30108,0.9998671449448652
+XGBoost,hardened,DoS Slowhttptest,330,0.8727272727272727
+XGBoost,hardened,DoS Slowloris,733,0.7503410641200545
+XGBoost,hardened,FTP-Patator,754,0.9946949602122016
+XGBoost,hardened,Heartbleed,2,0.0
+XGBoost,hardened,SSH-Patator,562,0.9430604982206405

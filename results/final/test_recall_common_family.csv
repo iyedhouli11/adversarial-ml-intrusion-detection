@@ -1,0 +1,295 @@
+detector,state,family,attack,n_common,kept,recall
+LogReg,original,DoS GoldenEye,none,300,278,0.9266666666666666
+LogReg,original,DoS GoldenEye,random A=0.1,300,277,0.9233333333333333
+LogReg,original,DoS GoldenEye,random A=0.25,300,277,0.9233333333333333
+LogReg,original,DoS GoldenEye,random A=0.5,300,261,0.87
+LogReg,original,DoS GoldenEye,random A=1.0,300,217,0.7233333333333334
+LogReg,original,DoS GoldenEye,random A=2.0,300,208,0.6933333333333334
+LogReg,original,DoS GoldenEye,grid A=2.0,300,208,0.6933333333333334
+LogReg,original,DoS Hulk,none,300,300,1.0
+LogReg,original,DoS Hulk,random A=0.1,300,300,1.0
+LogReg,original,DoS Hulk,random A=0.25,300,300,1.0
+LogReg,original,DoS Hulk,random A=0.5,300,299,0.9966666666666667
+LogReg,original,DoS Hulk,random A=1.0,300,287,0.9566666666666667
+LogReg,original,DoS Hulk,random A=2.0,300,245,0.8166666666666667
+LogReg,original,DoS Hulk,grid A=2.0,300,244,0.8133333333333334
+LogReg,original,DoS Slowhttptest,none,300,102,0.34
+LogReg,original,DoS Slowhttptest,random A=0.1,300,82,0.2733333333333333
+LogReg,original,DoS Slowhttptest,random A=0.25,300,76,0.25333333333333335
+LogReg,original,DoS Slowhttptest,random A=0.5,300,76,0.25333333333333335
+LogReg,original,DoS Slowhttptest,random A=1.0,300,56,0.18666666666666668
+LogReg,original,DoS Slowhttptest,random A=2.0,300,7,0.023333333333333334
+LogReg,original,DoS Slowhttptest,grid A=2.0,300,0,0.0
+LogReg,original,DoS Slowloris,none,300,220,0.7333333333333333
+LogReg,original,DoS Slowloris,random A=0.1,300,215,0.7166666666666667
+LogReg,original,DoS Slowloris,random A=0.25,300,213,0.71
+LogReg,original,DoS Slowloris,random A=0.5,300,213,0.71
+LogReg,original,DoS Slowloris,random A=1.0,300,206,0.6866666666666666
+LogReg,original,DoS Slowloris,random A=2.0,300,175,0.5833333333333334
+LogReg,original,DoS Slowloris,grid A=2.0,300,131,0.43666666666666665
+LogReg,original,FTP-Patator,none,300,299,0.9966666666666667
+LogReg,original,FTP-Patator,random A=0.1,300,299,0.9966666666666667
+LogReg,original,FTP-Patator,random A=0.25,300,299,0.9966666666666667
+LogReg,original,FTP-Patator,random A=0.5,300,299,0.9966666666666667
+LogReg,original,FTP-Patator,random A=1.0,300,299,0.9966666666666667
+LogReg,original,FTP-Patator,random A=2.0,300,298,0.9933333333333333
+LogReg,original,FTP-Patator,grid A=2.0,300,298,0.9933333333333333
+LogReg,original,Heartbleed,none,2,2,1.0
+LogReg,original,Heartbleed,random A=0.1,2,2,1.0
+LogReg,original,Heartbleed,random A=0.25,2,2,1.0
+LogReg,original,Heartbleed,random A=0.5,2,2,1.0
+LogReg,original,Heartbleed,random A=1.0,2,2,1.0
+LogReg,original,Heartbleed,random A=2.0,2,2,1.0
+LogReg,original,Heartbleed,grid A=2.0,2,1,0.5
+LogReg,original,SSH-Patator,none,300,273,0.91
+LogReg,original,SSH-Patator,random A=0.1,300,206,0.6866666666666666
+LogReg,original,SSH-Patator,random A=0.25,300,43,0.14333333333333334
+LogReg,original,SSH-Patator,random A=0.5,300,0,0.0
+LogReg,original,SSH-Patator,random A=1.0,300,0,0.0
+LogReg,original,SSH-Patator,random A=2.0,300,0,0.0
+LogReg,original,SSH-Patator,grid A=2.0,300,0,0.0
+LogReg,hardened,DoS GoldenEye,none,300,277,0.9233333333333333
+LogReg,hardened,DoS GoldenEye,random A=0.1,300,277,0.9233333333333333
+LogReg,hardened,DoS GoldenEye,random A=0.25,300,277,0.9233333333333333
+LogReg,hardened,DoS GoldenEye,random A=0.5,300,277,0.9233333333333333
+LogReg,hardened,DoS GoldenEye,random A=1.0,300,277,0.9233333333333333
+LogReg,hardened,DoS GoldenEye,random A=2.0,300,277,0.9233333333333333
+LogReg,hardened,DoS GoldenEye,grid A=2.0,300,277,0.9233333333333333
+LogReg,hardened,DoS Hulk,none,300,300,1.0
+LogReg,hardened,DoS Hulk,random A=0.1,300,300,1.0
+LogReg,hardened,DoS Hulk,random A=0.25,300,300,1.0
+LogReg,hardened,DoS Hulk,random A=0.5,300,300,1.0
+LogReg,hardened,DoS Hulk,random A=1.0,300,300,1.0
+LogReg,hardened,DoS Hulk,random A=2.0,300,300,1.0
+LogReg,hardened,DoS Hulk,grid A=2.0,300,300,1.0
+LogReg,hardened,DoS Slowhttptest,none,300,103,0.3433333333333333
+LogReg,hardened,DoS Slowhttptest,random A=0.1,300,103,0.3433333333333333
+LogReg,hardened,DoS Slowhttptest,random A=0.25,300,103,0.3433333333333333
+LogReg,hardened,DoS Slowhttptest,random A=0.5,300,103,0.3433333333333333
+LogReg,hardened,DoS Slowhttptest,random A=1.0,300,102,0.34
+LogReg,hardened,DoS Slowhttptest,random A=2.0,300,101,0.33666666666666667
+LogReg,hardened,DoS Slowhttptest,grid A=2.0,300,97,0.3233333333333333
+LogReg,hardened,DoS Slowloris,none,300,239,0.7966666666666666
+LogReg,hardened,DoS Slowloris,random A=0.1,300,239,0.7966666666666666
+LogReg,hardened,DoS Slowloris,random A=0.25,300,239,0.7966666666666666
+LogReg,hardened,DoS Slowloris,random A=0.5,300,239,0.7966666666666666
+LogReg,hardened,DoS Slowloris,random A=1.0,300,239,0.7966666666666666
+LogReg,hardened,DoS Slowloris,random A=2.0,300,239,0.7966666666666666
+LogReg,hardened,DoS Slowloris,grid A=2.0,300,239,0.7966666666666666
+LogReg,hardened,FTP-Patator,none,300,299,0.9966666666666667
+LogReg,hardened,FTP-Patator,random A=0.1,300,299,0.9966666666666667
+LogReg,hardened,FTP-Patator,random A=0.25,300,299,0.9966666666666667
+LogReg,hardened,FTP-Patator,random A=0.5,300,299,0.9966666666666667
+LogReg,hardened,FTP-Patator,random A=1.0,300,299,0.9966666666666667
+LogReg,hardened,FTP-Patator,random A=2.0,300,299,0.9966666666666667
+LogReg,hardened,FTP-Patator,grid A=2.0,300,299,0.9966666666666667
+LogReg,hardened,Heartbleed,none,2,2,1.0
+LogReg,hardened,Heartbleed,random A=0.1,2,2,1.0
+LogReg,hardened,Heartbleed,random A=0.25,2,2,1.0
+LogReg,hardened,Heartbleed,random A=0.5,2,2,1.0
+LogReg,hardened,Heartbleed,random A=1.0,2,2,1.0
+LogReg,hardened,Heartbleed,random A=2.0,2,1,0.5
+LogReg,hardened,Heartbleed,grid A=2.0,2,1,0.5
+LogReg,hardened,SSH-Patator,none,300,280,0.9333333333333333
+LogReg,hardened,SSH-Patator,random A=0.1,300,280,0.9333333333333333
+LogReg,hardened,SSH-Patator,random A=0.25,300,280,0.9333333333333333
+LogReg,hardened,SSH-Patator,random A=0.5,300,280,0.9333333333333333
+LogReg,hardened,SSH-Patator,random A=1.0,300,266,0.8866666666666667
+LogReg,hardened,SSH-Patator,random A=2.0,300,254,0.8466666666666667
+LogReg,hardened,SSH-Patator,grid A=2.0,300,252,0.84
+RandomForest,original,DoS GoldenEye,none,300,300,1.0
+RandomForest,original,DoS GoldenEye,random A=0.1,300,300,1.0
+RandomForest,original,DoS GoldenEye,random A=0.25,300,300,1.0
+RandomForest,original,DoS GoldenEye,random A=0.5,300,299,0.9966666666666667
+RandomForest,original,DoS GoldenEye,random A=1.0,300,299,0.9966666666666667
+RandomForest,original,DoS GoldenEye,random A=2.0,300,299,0.9966666666666667
+RandomForest,original,DoS GoldenEye,grid A=2.0,300,299,0.9966666666666667
+RandomForest,original,DoS Hulk,none,300,300,1.0
+RandomForest,original,DoS Hulk,random A=0.1,300,300,1.0
+RandomForest,original,DoS Hulk,random A=0.25,300,300,1.0
+RandomForest,original,DoS Hulk,random A=0.5,300,300,1.0
+RandomForest,original,DoS Hulk,random A=1.0,300,300,1.0
+RandomForest,original,DoS Hulk,random A=2.0,300,300,1.0
+RandomForest,original,DoS Hulk,grid A=2.0,300,300,1.0
+RandomForest,original,DoS Slowhttptest,none,300,138,0.46
+RandomForest,original,DoS Slowhttptest,random A=0.1,300,138,0.46
+RandomForest,original,DoS Slowhttptest,random A=0.25,300,138,0.46
+RandomForest,original,DoS Slowhttptest,random A=0.5,300,137,0.45666666666666667
+RandomForest,original,DoS Slowhttptest,random A=1.0,300,137,0.45666666666666667
+RandomForest,original,DoS Slowhttptest,random A=2.0,300,130,0.43333333333333335
+RandomForest,original,DoS Slowhttptest,grid A=2.0,300,130,0.43333333333333335
+RandomForest,original,DoS Slowloris,none,300,186,0.62
+RandomForest,original,DoS Slowloris,random A=0.1,300,186,0.62
+RandomForest,original,DoS Slowloris,random A=0.25,300,186,0.62
+RandomForest,original,DoS Slowloris,random A=0.5,300,186,0.62
+RandomForest,original,DoS Slowloris,random A=1.0,300,186,0.62
+RandomForest,original,DoS Slowloris,random A=2.0,300,186,0.62
+RandomForest,original,DoS Slowloris,grid A=2.0,300,186,0.62
+RandomForest,original,FTP-Patator,none,300,299,0.9966666666666667
+RandomForest,original,FTP-Patator,random A=0.1,300,299,0.9966666666666667
+RandomForest,original,FTP-Patator,random A=0.25,300,299,0.9966666666666667
+RandomForest,original,FTP-Patator,random A=0.5,300,299,0.9966666666666667
+RandomForest,original,FTP-Patator,random A=1.0,300,299,0.9966666666666667
+RandomForest,original,FTP-Patator,random A=2.0,300,299,0.9966666666666667
+RandomForest,original,FTP-Patator,grid A=2.0,300,299,0.9966666666666667
+RandomForest,original,Heartbleed,none,2,0,0.0
+RandomForest,original,Heartbleed,random A=0.1,2,0,0.0
+RandomForest,original,Heartbleed,random A=0.25,2,0,0.0
+RandomForest,original,Heartbleed,random A=0.5,2,0,0.0
+RandomForest,original,Heartbleed,random A=1.0,2,0,0.0
+RandomForest,original,Heartbleed,random A=2.0,2,0,0.0
+RandomForest,original,Heartbleed,grid A=2.0,2,0,0.0
+RandomForest,original,SSH-Patator,none,300,284,0.9466666666666667
+RandomForest,original,SSH-Patator,random A=0.1,300,284,0.9466666666666667
+RandomForest,original,SSH-Patator,random A=0.25,300,284,0.9466666666666667
+RandomForest,original,SSH-Patator,random A=0.5,300,283,0.9433333333333334
+RandomForest,original,SSH-Patator,random A=1.0,300,179,0.5966666666666667
+RandomForest,original,SSH-Patator,random A=2.0,300,2,0.006666666666666667
+RandomForest,original,SSH-Patator,grid A=2.0,300,2,0.006666666666666667
+RandomForest,hardened,DoS GoldenEye,none,300,300,1.0
+RandomForest,hardened,DoS GoldenEye,random A=0.1,300,300,1.0
+RandomForest,hardened,DoS GoldenEye,random A=0.25,300,300,1.0
+RandomForest,hardened,DoS GoldenEye,random A=0.5,300,300,1.0
+RandomForest,hardened,DoS GoldenEye,random A=1.0,300,300,1.0
+RandomForest,hardened,DoS GoldenEye,random A=2.0,300,299,0.9966666666666667
+RandomForest,hardened,DoS GoldenEye,grid A=2.0,300,299,0.9966666666666667
+RandomForest,hardened,DoS Hulk,none,300,300,1.0
+RandomForest,hardened,DoS Hulk,random A=0.1,300,300,1.0
+RandomForest,hardened,DoS Hulk,random A=0.25,300,300,1.0
+RandomForest,hardened,DoS Hulk,random A=0.5,300,300,1.0
+RandomForest,hardened,DoS Hulk,random A=1.0,300,300,1.0
+RandomForest,hardened,DoS Hulk,random A=2.0,300,300,1.0
+RandomForest,hardened,DoS Hulk,grid A=2.0,300,300,1.0
+RandomForest,hardened,DoS Slowhttptest,none,300,153,0.51
+RandomForest,hardened,DoS Slowhttptest,random A=0.1,300,153,0.51
+RandomForest,hardened,DoS Slowhttptest,random A=0.25,300,153,0.51
+RandomForest,hardened,DoS Slowhttptest,random A=0.5,300,153,0.51
+RandomForest,hardened,DoS Slowhttptest,random A=1.0,300,153,0.51
+RandomForest,hardened,DoS Slowhttptest,random A=2.0,300,152,0.5066666666666667
+RandomForest,hardened,DoS Slowhttptest,grid A=2.0,300,152,0.5066666666666667
+RandomForest,hardened,DoS Slowloris,none,300,186,0.62
+RandomForest,hardened,DoS Slowloris,random A=0.1,300,186,0.62
+RandomForest,hardened,DoS Slowloris,random A=0.25,300,186,0.62
+RandomForest,hardened,DoS Slowloris,random A=0.5,300,186,0.62
+RandomForest,hardened,DoS Slowloris,random A=1.0,300,186,0.62
+RandomForest,hardened,DoS Slowloris,random A=2.0,300,186,0.62
+RandomForest,hardened,DoS Slowloris,grid A=2.0,300,186,0.62
+RandomForest,hardened,FTP-Patator,none,300,299,0.9966666666666667
+RandomForest,hardened,FTP-Patator,random A=0.1,300,299,0.9966666666666667
+RandomForest,hardened,FTP-Patator,random A=0.25,300,299,0.9966666666666667
+RandomForest,hardened,FTP-Patator,random A=0.5,300,299,0.9966666666666667
+RandomForest,hardened,FTP-Patator,random A=1.0,300,299,0.9966666666666667
+RandomForest,hardened,FTP-Patator,random A=2.0,300,299,0.9966666666666667
+RandomForest,hardened,FTP-Patator,grid A=2.0,300,299,0.9966666666666667
+RandomForest,hardened,Heartbleed,none,2,0,0.0
+RandomForest,hardened,Heartbleed,random A=0.1,2,0,0.0
+RandomForest,hardened,Heartbleed,random A=0.25,2,0,0.0
+RandomForest,hardened,Heartbleed,random A=0.5,2,0,0.0
+RandomForest,hardened,Heartbleed,random A=1.0,2,0,0.0
+RandomForest,hardened,Heartbleed,random A=2.0,2,0,0.0
+RandomForest,hardened,Heartbleed,grid A=2.0,2,0,0.0
+RandomForest,hardened,SSH-Patator,none,300,284,0.9466666666666667
+RandomForest,hardened,SSH-Patator,random A=0.1,300,284,0.9466666666666667
+RandomForest,hardened,SSH-Patator,random A=0.25,300,284,0.9466666666666667
+RandomForest,hardened,SSH-Patator,random A=0.5,300,284,0.9466666666666667
+RandomForest,hardened,SSH-Patator,random A=1.0,300,284,0.9466666666666667
+RandomForest,hardened,SSH-Patator,random A=2.0,300,284,0.9466666666666667
+RandomForest,hardened,SSH-Patator,grid A=2.0,300,284,0.9466666666666667
+XGBoost,original,DoS GoldenEye,none,300,300,1.0
+XGBoost,original,DoS GoldenEye,random A=0.1,300,300,1.0
+XGBoost,original,DoS GoldenEye,random A=0.25,300,300,1.0
+XGBoost,original,DoS GoldenEye,random A=0.5,300,300,1.0
+XGBoost,original,DoS GoldenEye,random A=1.0,300,300,1.0
+XGBoost,original,DoS GoldenEye,random A=2.0,300,300,1.0
+XGBoost,original,DoS GoldenEye,grid A=2.0,300,300,1.0
+XGBoost,original,DoS Hulk,none,300,300,1.0
+XGBoost,original,DoS Hulk,random A=0.1,300,300,1.0
+XGBoost,original,DoS Hulk,random A=0.25,300,300,1.0
+XGBoost,original,DoS Hulk,random A=0.5,300,300,1.0
+XGBoost,original,DoS Hulk,random A=1.0,300,300,1.0
+XGBoost,original,DoS Hulk,random A=2.0,300,300,1.0
+XGBoost,original,DoS Hulk,grid A=2.0,300,300,1.0
+XGBoost,original,DoS Slowhttptest,none,300,250,0.8333333333333334
+XGBoost,original,DoS Slowhttptest,random A=0.1,300,250,0.8333333333333334
+XGBoost,original,DoS Slowhttptest,random A=0.25,300,250,0.8333333333333334
+XGBoost,original,DoS Slowhttptest,random A=0.5,300,162,0.54
+XGBoost,original,DoS Slowhttptest,random A=1.0,300,163,0.5433333333333333
+XGBoost,original,DoS Slowhttptest,random A=2.0,300,168,0.56
+XGBoost,original,DoS Slowhttptest,grid A=2.0,300,174,0.58
+XGBoost,original,DoS Slowloris,none,300,223,0.7433333333333333
+XGBoost,original,DoS Slowloris,random A=0.1,300,223,0.7433333333333333
+XGBoost,original,DoS Slowloris,random A=0.25,300,223,0.7433333333333333
+XGBoost,original,DoS Slowloris,random A=0.5,300,223,0.7433333333333333
+XGBoost,original,DoS Slowloris,random A=1.0,300,223,0.7433333333333333
+XGBoost,original,DoS Slowloris,random A=2.0,300,203,0.6766666666666666
+XGBoost,original,DoS Slowloris,grid A=2.0,300,203,0.6766666666666666
+XGBoost,original,FTP-Patator,none,300,299,0.9966666666666667
+XGBoost,original,FTP-Patator,random A=0.1,300,299,0.9966666666666667
+XGBoost,original,FTP-Patator,random A=0.25,300,299,0.9966666666666667
+XGBoost,original,FTP-Patator,random A=0.5,300,299,0.9966666666666667
+XGBoost,original,FTP-Patator,random A=1.0,300,299,0.9966666666666667
+XGBoost,original,FTP-Patator,random A=2.0,300,299,0.9966666666666667
+XGBoost,original,FTP-Patator,grid A=2.0,300,299,0.9966666666666667
+XGBoost,original,Heartbleed,none,2,0,0.0
+XGBoost,original,Heartbleed,random A=0.1,2,0,0.0
+XGBoost,original,Heartbleed,random A=0.25,2,0,0.0
+XGBoost,original,Heartbleed,random A=0.5,2,0,0.0
+XGBoost,original,Heartbleed,random A=1.0,2,0,0.0
+XGBoost,original,Heartbleed,random A=2.0,2,0,0.0
+XGBoost,original,Heartbleed,grid A=2.0,2,0,0.0
+XGBoost,original,SSH-Patator,none,300,284,0.9466666666666667
+XGBoost,original,SSH-Patator,random A=0.1,300,284,0.9466666666666667
+XGBoost,original,SSH-Patator,random A=0.25,300,284,0.9466666666666667
+XGBoost,original,SSH-Patator,random A=0.5,300,284,0.9466666666666667
+XGBoost,original,SSH-Patator,random A=1.0,300,284,0.9466666666666667
+XGBoost,original,SSH-Patator,random A=2.0,300,284,0.9466666666666667
+XGBoost,original,SSH-Patator,grid A=2.0,300,284,0.9466666666666667
+XGBoost,hardened,DoS GoldenEye,none,300,300,1.0
+XGBoost,hardened,DoS GoldenEye,random A=0.1,300,300,1.0
+XGBoost,hardened,DoS GoldenEye,random A=0.25,300,300,1.0
+XGBoost,hardened,DoS GoldenEye,random A=0.5,300,300,1.0
+XGBoost,hardened,DoS GoldenEye,random A=1.0,300,300,1.0
+XGBoost,hardened,DoS GoldenEye,random A=2.0,300,300,1.0
+XGBoost,hardened,DoS GoldenEye,grid A=2.0,300,300,1.0
+XGBoost,hardened,DoS Hulk,none,300,300,1.0
+XGBoost,hardened,DoS Hulk,random A=0.1,300,300,1.0
+XGBoost,hardened,DoS Hulk,random A=0.25,300,300,1.0
+XGBoost,hardened,DoS Hulk,random A=0.5,300,300,1.0
+XGBoost,hardened,DoS Hulk,random A=1.0,300,300,1.0
+XGBoost,hardened,DoS Hulk,random A=2.0,300,300,1.0
+XGBoost,hardened,DoS Hulk,grid A=2.0,300,300,1.0
+XGBoost,hardened,DoS Slowhttptest,none,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowhttptest,random A=0.1,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowhttptest,random A=0.25,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowhttptest,random A=0.5,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowhttptest,random A=1.0,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowhttptest,random A=2.0,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowhttptest,grid A=2.0,300,263,0.8766666666666667
+XGBoost,hardened,DoS Slowloris,none,300,223,0.7433333333333333
+XGBoost,hardened,DoS Slowloris,random A=0.1,300,223,0.7433333333333333
+XGBoost,hardened,DoS Slowloris,random A=0.25,300,223,0.7433333333333333
+XGBoost,hardened,DoS Slowloris,random A=0.5,300,223,0.7433333333333333
+XGBoost,hardened,DoS Slowloris,random A=1.0,300,223,0.7433333333333333
+XGBoost,hardened,DoS Slowloris,random A=2.0,300,223,0.7433333333333333
+XGBoost,hardened,DoS Slowloris,grid A=2.0,300,223,0.7433333333333333
+XGBoost,hardened,FTP-Patator,none,300,299,0.9966666666666667
+XGBoost,hardened,FTP-Patator,random A=0.1,300,299,0.9966666666666667
+XGBoost,hardened,FTP-Patator,random A=0.25,300,299,0.9966666666666667
+XGBoost,hardened,FTP-Patator,random A=0.5,300,299,0.9966666666666667
+XGBoost,hardened,FTP-Patator,random A=1.0,300,299,0.9966666666666667
+XGBoost,hardened,FTP-Patator,random A=2.0,300,299,0.9966666666666667
+XGBoost,hardened,FTP-Patator,grid A=2.0,300,299,0.9966666666666667
+XGBoost,hardened,Heartbleed,none,2,0,0.0
+XGBoost,hardened,Heartbleed,random A=0.1,2,0,0.0
+XGBoost,hardened,Heartbleed,random A=0.25,2,0,0.0
+XGBoost,hardened,Heartbleed,random A=0.5,2,0,0.0
+XGBoost,hardened,Heartbleed,random A=1.0,2,0,0.0
+XGBoost,hardened,Heartbleed,random A=2.0,2,0,0.0
+XGBoost,hardened,Heartbleed,grid A=2.0,2,0,0.0
+XGBoost,hardened,SSH-Patator,none,300,285,0.95
+XGBoost,hardened,SSH-Patator,random A=0.1,300,285,0.95
+XGBoost,hardened,SSH-Patator,random A=0.25,300,285,0.95
+XGBoost,hardened,SSH-Patator,random A=0.5,300,285,0.95
+XGBoost,hardened,SSH-Patator,random A=1.0,300,284,0.9466666666666667
+XGBoost,hardened,SSH-Patator,random A=2.0,300,284,0.9466666666666667
+XGBoost,hardened,SSH-Patator,grid A=2.0,300,284,0.9466666666666667
