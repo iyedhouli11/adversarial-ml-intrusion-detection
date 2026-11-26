@@ -67,7 +67,7 @@ def main() -> None:
 
     perturbed = {}
     for amplitude in AMPLITUDES:
-        draw = np.random.default_rng(PERTURB_SEED + int(round(amplitude * 100)))
+        draw = np.random.default_rng(PERTURB_SEED + round(amplitude * 100))
         s = 1.0 + amplitude * draw.random(len(benign))
         t = 1.0 + amplitude * draw.random(len(benign))
         candidate = perturb(benign, s, t)

@@ -226,7 +226,7 @@ def evasion_comparison(rows):
     columns = ["attacked", "evaded", "rate", "ci_low", "ci_high"]
     original = frame[frame["state"] == "original"].set_index(keys)[columns]
     hardened = frame[frame["state"] == "hardened"].set_index(keys)[columns]
-    comparison = original.join(hardened, how="outer", lsuffix="_o", rsuffix="_h")
+    comparison = original.add_suffix("_o").join(hardened.add_suffix("_h"), how="outer")
 
     def verdict(row) -> str:
         if pd.isna(row["ci_high_o"]) or pd.isna(row["ci_high_h"]):
