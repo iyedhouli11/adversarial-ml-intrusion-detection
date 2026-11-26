@@ -12,7 +12,6 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DATA_DIR = PROJECT_ROOT / "data" / "raw" / "CICIDS2017_improved"
 DEFAULT_REPORT_PATH = PROJECT_ROOT / "docs" / "dataset_audit_report.md"
@@ -97,7 +96,7 @@ def _format_counter(counter: Counter[str]) -> list[list[str | int]]:
     return [[key, value] for key, value in sorted(counter.items(), key=lambda item: (-item[1], item[0]))]
 
 
-def _format_number(value: int | float) -> str:
+def _format_number(value: float) -> str:
     return f"{value:,}".replace(",", " ")
 
 
