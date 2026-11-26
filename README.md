@@ -1,4 +1,4 @@
-# Attaquer son propre détecteur d'intrusion (évasion adverse et durcissement)
+# Adversarial ML Intrusion Detection (évasion adverse et durcissement)
 
 Projet 2 du module « Machine Learning pour la cyber-sécurité » (Tek-up), réalisé **seul** : l'étudiant joue successivement le rôle du défenseur (détecteur, durcissement) et de l'attaquant (évasion). Données publiques uniquement, aucune attaque contre un système réel.
 
