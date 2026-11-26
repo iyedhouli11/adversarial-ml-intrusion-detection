@@ -1,0 +1,7 @@
+detector,state,FP,FN,expected,match,fit_s
+LogReg,original,509,274,"(509, 274)",True,6.5
+LogReg,hardened,444,227,"(444, 227)",True,10.0
+RandomForest,original,11,40,"(11, 40)",True,39.8
+RandomForest,hardened,12,26,"(12, 26)",True,45.5
+XGBoost,original,7,36,"(7, 36)",True,6.0
+XGBoost,hardened,5,10,"(5, 10)",True,5.1

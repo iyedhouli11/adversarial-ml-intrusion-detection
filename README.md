@@ -1,134 +1,84 @@
-# Adversarial Machine Learning for Network Intrusion Detection
+# Attaquer son propre détecteur d'intrusion (évasion adverse et durcissement)
 
-Projet académique de cybersécurité consacré à l'évasion adverse contre un système de détection d'intrusion basé sur l'apprentissage automatique.
+Projet 2 du module « Machine Learning pour la cyber-sécurité » (Tek-up), réalisé **seul** : l'étudiant joue successivement le rôle du défenseur (détecteur, durcissement) et de l'attaquant (évasion). Données publiques uniquement, aucune attaque contre un système réel.
 
-## Objectif
+**Le rapport est le notebook [`notebooks/02_final_report.ipynb`](notebooks/02_final_report.ipynb)** (12 sections : problématique, données, préparation, méthodologie, modèle de menace, modèles, attaque, défense, résultats, analyse critique, limites, conclusion). Il lit les agrégats enregistrés dans `results/final/` et s'exécute de haut en bas en quelques secondes.
 
-Le projet adopte deux perspectives :
+## Résultats principaux (segment test, exécution unique)
 
-- **Blue Team** : construire, évaluer et durcir un détecteur de trafic normal et malveillant ;
-- **Red Team** : rechercher des modifications contraintes permettant à un trafic malveillant correctement détecté d'être classé comme normal.
+Rappel sur la population commune (au plus 300 attaques par famille), propre puis sous l'attaque par grille (amplitude A = 2) :
 
-Les expériences seront hors ligne, reproductibles et réalisées uniquement sur des données publiques. Aucune attaque ne sera lancée contre un système réel.
+| Détecteur | Original | Durci (entraînement adverse) |
+|---|---|---|
+| Régression logistique | 0,818 → 0,490 | 0,832 → 0,813 |
+| Forêt aléatoire | 0,836 → 0,675 | 0,845 → 0,844 |
+| XGBoost | 0,919 → 0,866 | 0,927 → 0,926 |
 
-## État actuel
+- Performance propre sur 226 157 flux : F1 de 0,987 (régression logistique) à 0,996 (XGBoost). C'est une **borne optimiste** (mêmes familles d'attaque en train et en test).
+- Les trois détecteurs sont évadables par un attaquant boîte noire qui ne fait que remplir ses paquets et retarder son trafic côté client. Le durcissement ramène le rappel presque au niveau propre, **contre l'attaque connue seulement**.
+- **Vendredi (familles inconnues : Portscan, DDoS, Botnet)** : rappel propre de 0,27 à 0,69 seulement, et XGBoost durci reste évadé à 98,7 % sur DDoS. Le score du découpage par strate ne se généralise pas aux attaques nouvelles.
+- Courbes exigées : `results/final/test_recall_vs_amplitude.png` (rappel selon l'amplitude, avant et après durcissement) et `results/final/test_pr_curves.png`.
 
-- Dépôt Git local indépendant initialisé sur la branche `main` ;
-- CNS2022 `CICIDS2017_improved.zip` sélectionné et vérifié ;
-- cinq CSV journaliers extraits dans `data/raw/CICIDS2017_improved/` ;
-- audit metadata-only exécuté et rapport généré ;
-- Phase 4.2 : baseline de régression logistique entraînée (lundi-mercredi) et évaluée sur la validation (jeudi) ; aucun résultat sur le vendredi ;
-- Phase 4.1 : pipeline de preprocessing implémenté, testé (14 tests) et validé
-  sur train et validation uniquement ; le vendredi n'a pas été utilisé ;
-- le découpage lundi-mercredi / jeudi / vendredi reste provisoire : train et
-  validation ne partagent aucune famille d'attaque (voir
-  `docs/preprocessing_report.md`).
-
-## Structure prévue
+## Structure
 
 ```text
-docs/       protocole, dataset, contrôlabilité, menace et rapport
-src/        logique réutilisable de données, modèles, attaques et évaluation
-notebooks/  exploration et expériences reproductibles
-tests/      tests des contraintes et des fonctions principales
-results/    figures et résumés sélectionnés, jamais les données brutes
-requirements.txt      dépendances runtime minimales
-requirements-dev.txt  outils de développement : ruff, et Jupyter (optionnel)
+docs/        protocoles, spécifications commitées avant exécution, rapports par expérience
+src/data/    chargement, audit, prétraitement sans fuite, découpage temporel par strate
+src/models/  baselines, réglage sur la validation, profils des détecteurs
+src/attacks/ couche de perturbation réaliste, recherche aléatoire, grille, attaque multi-détecteurs
+src/defenses/ entraînement adverse, contrôle des flux normaux perturbés
+src/evaluation/ évaluation finale unique et figures
+notebooks/   01 audit du jeu, 02 rapport final
+results/final/ agrégats CSV, figures et sortie console de l'évaluation finale (aucune donnée brute)
+tests/       30 tests unittest
 ```
 
-Les données brutes, intermédiaires et traitées sont exclues par `.gitignore`.
+## Installation
 
-## Méthodologie prévue
-
-La comparaison comprendra une régression logistique, une forêt aléatoire et XGBoost. Les métriques principales seront la matrice de confusion, précision, rappel, F1-score, PR-AUC, temps d'entraînement et temps d'inférence. Les opérations apprises seront ajustées sur l'entraînement uniquement et le test final ne sera utilisé qu'une fois.
-
-L'attaque initiale sera une recherche aléatoire de perturbations bornées dans l'espace des caractéristiques, avec un budget maximal de 1 000 requêtes par échantillon. Une modification de ligne CSV ne sera pas présentée comme une modification de paquets réseau sans reconstruction et vérification supplémentaires.
-
-## Phase 3 — audit initial du dataset
-
-Dataset : [CIC-IDS2017 Improved — CNS2022](https://intrusion-detection.distrinet-research.be/CNS2022/CICIDS2017.html).
-L'archive officielle est `CICIDS2017_improved.zip`. Les cinq CSV sont extraits
-dans `data/raw/CICIDS2017_improved/`. Les données brutes sont ignorées par Git
-et ne doivent jamais être commit ou poussées.
-
-### Installation runtime
+Python 3.11, Windows PowerShell (les commandes sont équivalentes ailleurs).
 
 ```powershell
 py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt   # ruff, jupyter, ipykernel (notebook)
 ```
 
-### Audit reproductible
+Versions épinglées dans `requirements.txt` (numpy 2.4.6, pandas 3.1.1, scikit-learn 1.8.0, scipy 1.17.1, xgboost 3.2.0, matplotlib 3.11.2).
 
-Depuis la racine du projet :
+## Données (non versionnées)
 
-```powershell
-.\.venv\Scripts\python.exe -m src.data.audit_dataset
-```
-
-Le rapport agrégé est généré dans
-`docs/dataset_audit_report.md`. Il ne contient pas d'échantillons bruts. Les
-résultats actuels décrivent les cinq jours, les labels, le schéma, les valeurs
-manquantes ou infinies, les doublons candidats et la faisabilité du split.
-
-### Acquisition et extraction
-
-L'archive officielle est disponible à :
+Jeu : [CIC-IDS2017 Improved, CNS2022](https://intrusion-detection.distrinet-research.be/CNS2022/CICIDS2017.html). Télécharger l'archive officielle :
 
 ```text
 https://intrusion-detection.distrinet-research.be/CNS2022/Datasets/CICIDS2017_improved.zip
 ```
 
-La taille vérifiée est `343549013` octets. L'extraction doit produire
-`monday.csv`, `tuesday.csv`, `wednesday.csv`, `thursday.csv` et `friday.csv`
-dans `data/raw/CICIDS2017_improved/`. L'archive, les CSV bruts et les données
-traitées restent hors Git.
+Taille vérifiée : `343549013` octets. L'extraction doit produire `monday.csv` … `friday.csv` dans `data/raw/CICIDS2017_improved/`. L'archive, les CSV et toute donnée traitée sont ignorés par Git.
 
-### Notebook
-
-Le notebook peut être lu et ses cellules ont été validées séquentiellement avec
-le `.venv`. L'exécution native par Jupyter n'est pas encore installée dans
-l'environnement runtime. Après approbation séparée, les dépendances de
-développement prévues sont :
+## Reproduction
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-.\.venv\Scripts\python.exe -m jupyter nbconvert --to notebook --execute --inplace notebooks\01_dataset_audit.ipynb
+python -m unittest discover -s tests          # 30 tests
+python -m ruff check src tests
+python -m src.data.audit_dataset              # audit du jeu
+python -m src.defenses.adversarial_training   # durcissement, validation seulement
+python -m src.evaluation.final_evaluation --segment test     # une seule fois (environ 15 min)
+python -m src.evaluation.final_evaluation --segment friday   # une seule fois, après le test
+python -m src.evaluation.make_figures --segment test
+python -m jupyter nbconvert --to notebook --execute --inplace notebooks\02_final_report.ipynb
 ```
 
-Les outputs du notebook doivent rester agrégés et ne jamais contenir de lignes
-brutes du dataset.
+`final_evaluation` reconstruit les six modèles, vérifie d'abord qu'ils reproduisent exactement les FP/FN de la validation, puis refuse de s'exécuter deux fois sur le même segment (supprimer `results/final/<segment>_clean.csv` pour un essai de reproduction).
 
-## Phase 4.1 : preprocessing sans fuite
+Graines fixées : 42 (modèles, populations, copies adverses), 1234 (attaque d'évaluation), 99 (contrôle des flux normaux).
 
-Statut : implémenté et validé sur train + validation. Aucun modèle entraîné.
+## Rigueur et provenance
 
-- Protocole : `docs/preprocessing_protocol.md`
-- Rapport (chiffres observés) : `docs/preprocessing_report.md`
-- Code : `src/data/dataset_loader.py`, `src/data/preprocessing.py`
-- Vérification sur données réelles : `python -m src.data.check_preprocessing_real`
+- Le test et le vendredi ne servent qu'à l'évaluation finale ; tout le réglage est fait sur la validation.
+- Spécifications commitées avant exécution : `docs/hardening_specification.md`, `docs/final_evaluation_specification.md`.
+- Déclaré honnêtement : le découpage par strate a été choisi après les résultats du jeudi (post hoc) ; la spécification d'attaque v1 a été enregistrée rétroactivement ; l'attaque de la régression logistique et de la forêt et le durcissement des trois modèles sont post hoc. Liste complète : `docs/PROJECT_HANDOFF.md`, section 10.
 
-### Tests et qualité
+## Limites
 
-    .\.venv\Scripts\python.exe -m pip install ruff==0.17.5
-    .\.venv\Scripts\python.exe -m unittest discover -s tests
-    .\.venv\Scripts\python.exe -m ruff check src tests
-
-`ruff check src tests` signale encore 2 remarques de style dans
-`src/data/audit_dataset.py` (fichier de la Phase 3, non modifié ici).
-
-## Reproductibilité
-
-L'environnement cible est Python 3.11 dans un environnement virtuel local. Les versions, graines aléatoires, configurations, procédures d'acquisition et limites connues seront documentées avant les expériences. Les résultats publiés devront être mesurés ; aucune valeur ne sera inventée.
-
-## Organisation individuelle
-
-Le projet est réalisé intégralement par un seul étudiant. La progression suit les dépendances scientifiques : audit du dataset, pipeline reproductible, modèles, menace, attaque, durcissement, évaluation finale, rapport et présentation.
-
-La branche `main` suffit pour le travail initial. Une branche temporaire ne sera utilisée que si une modification isolée apporte un avantage réel. Chaque étape sera validée avant de commencer la suivante et chaque commit représentera une contribution réellement effectuée.
-
-## Références initiales
-
-- [CIC-IDS2017 — Canadian Institute for Cybersecurity](https://www.unb.ca/cic/datasets/ids-2017.html)
-- [UNSW-NB15 — UNSW Research](https://research.unsw.edu.au/projects/unsw-nb15-dataset)
-- [CICIDS2017 quality analysis — HAL](https://hal.science/hal-03775466)
+Attaquant non adaptatif (évalué contre l'attaque connue) ; deux perturbations seulement (remplissage et délai côté `Fwd`) ; modification de lignes de flux, pas de paquets réels ; une seule graine d'entraînement ; borne optimiste du découpage par strate.

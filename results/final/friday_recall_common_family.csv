@@ -1,0 +1,127 @@
+detector,state,family,attack,n_common,kept,recall
+LogReg,original,Botnet,none,300,0,0.0
+LogReg,original,Botnet,random A=0.1,300,0,0.0
+LogReg,original,Botnet,random A=0.25,300,0,0.0
+LogReg,original,Botnet,random A=0.5,300,0,0.0
+LogReg,original,Botnet,random A=1.0,300,0,0.0
+LogReg,original,Botnet,random A=2.0,300,0,0.0
+LogReg,original,Botnet,grid A=2.0,300,0,0.0
+LogReg,original,DDoS,none,300,300,1.0
+LogReg,original,DDoS,random A=0.1,300,300,1.0
+LogReg,original,DDoS,random A=0.25,300,300,1.0
+LogReg,original,DDoS,random A=0.5,300,300,1.0
+LogReg,original,DDoS,random A=1.0,300,300,1.0
+LogReg,original,DDoS,random A=2.0,300,300,1.0
+LogReg,original,DDoS,grid A=2.0,300,300,1.0
+LogReg,original,Portscan,none,300,46,0.15333333333333332
+LogReg,original,Portscan,random A=0.1,300,46,0.15333333333333332
+LogReg,original,Portscan,random A=0.25,300,46,0.15333333333333332
+LogReg,original,Portscan,random A=0.5,300,46,0.15333333333333332
+LogReg,original,Portscan,random A=1.0,300,46,0.15333333333333332
+LogReg,original,Portscan,random A=2.0,300,46,0.15333333333333332
+LogReg,original,Portscan,grid A=2.0,300,46,0.15333333333333332
+LogReg,hardened,Botnet,none,300,10,0.03333333333333333
+LogReg,hardened,Botnet,random A=0.1,300,10,0.03333333333333333
+LogReg,hardened,Botnet,random A=0.25,300,10,0.03333333333333333
+LogReg,hardened,Botnet,random A=0.5,300,10,0.03333333333333333
+LogReg,hardened,Botnet,random A=1.0,300,10,0.03333333333333333
+LogReg,hardened,Botnet,random A=2.0,300,10,0.03333333333333333
+LogReg,hardened,Botnet,grid A=2.0,300,10,0.03333333333333333
+LogReg,hardened,DDoS,none,300,300,1.0
+LogReg,hardened,DDoS,random A=0.1,300,300,1.0
+LogReg,hardened,DDoS,random A=0.25,300,300,1.0
+LogReg,hardened,DDoS,random A=0.5,300,300,1.0
+LogReg,hardened,DDoS,random A=1.0,300,300,1.0
+LogReg,hardened,DDoS,random A=2.0,300,300,1.0
+LogReg,hardened,DDoS,grid A=2.0,300,300,1.0
+LogReg,hardened,Portscan,none,300,163,0.5433333333333333
+LogReg,hardened,Portscan,random A=0.1,300,163,0.5433333333333333
+LogReg,hardened,Portscan,random A=0.25,300,163,0.5433333333333333
+LogReg,hardened,Portscan,random A=0.5,300,163,0.5433333333333333
+LogReg,hardened,Portscan,random A=1.0,300,163,0.5433333333333333
+LogReg,hardened,Portscan,random A=2.0,300,163,0.5433333333333333
+LogReg,hardened,Portscan,grid A=2.0,300,163,0.5433333333333333
+RandomForest,original,Botnet,none,300,0,0.0
+RandomForest,original,Botnet,random A=0.1,300,0,0.0
+RandomForest,original,Botnet,random A=0.25,300,0,0.0
+RandomForest,original,Botnet,random A=0.5,300,0,0.0
+RandomForest,original,Botnet,random A=1.0,300,0,0.0
+RandomForest,original,Botnet,random A=2.0,300,0,0.0
+RandomForest,original,Botnet,grid A=2.0,300,0,0.0
+RandomForest,original,DDoS,none,300,300,1.0
+RandomForest,original,DDoS,random A=0.1,300,300,1.0
+RandomForest,original,DDoS,random A=0.25,300,300,1.0
+RandomForest,original,DDoS,random A=0.5,300,300,1.0
+RandomForest,original,DDoS,random A=1.0,300,300,1.0
+RandomForest,original,DDoS,random A=2.0,300,300,1.0
+RandomForest,original,DDoS,grid A=2.0,300,300,1.0
+RandomForest,original,Portscan,none,300,0,0.0
+RandomForest,original,Portscan,random A=0.1,300,0,0.0
+RandomForest,original,Portscan,random A=0.25,300,0,0.0
+RandomForest,original,Portscan,random A=0.5,300,0,0.0
+RandomForest,original,Portscan,random A=1.0,300,0,0.0
+RandomForest,original,Portscan,random A=2.0,300,0,0.0
+RandomForest,original,Portscan,grid A=2.0,300,0,0.0
+RandomForest,hardened,Botnet,none,300,0,0.0
+RandomForest,hardened,Botnet,random A=0.1,300,0,0.0
+RandomForest,hardened,Botnet,random A=0.25,300,0,0.0
+RandomForest,hardened,Botnet,random A=0.5,300,0,0.0
+RandomForest,hardened,Botnet,random A=1.0,300,0,0.0
+RandomForest,hardened,Botnet,random A=2.0,300,0,0.0
+RandomForest,hardened,Botnet,grid A=2.0,300,0,0.0
+RandomForest,hardened,DDoS,none,300,300,1.0
+RandomForest,hardened,DDoS,random A=0.1,300,300,1.0
+RandomForest,hardened,DDoS,random A=0.25,300,300,1.0
+RandomForest,hardened,DDoS,random A=0.5,300,300,1.0
+RandomForest,hardened,DDoS,random A=1.0,300,300,1.0
+RandomForest,hardened,DDoS,random A=2.0,300,300,1.0
+RandomForest,hardened,DDoS,grid A=2.0,300,300,1.0
+RandomForest,hardened,Portscan,none,300,0,0.0
+RandomForest,hardened,Portscan,random A=0.1,300,0,0.0
+RandomForest,hardened,Portscan,random A=0.25,300,0,0.0
+RandomForest,hardened,Portscan,random A=0.5,300,0,0.0
+RandomForest,hardened,Portscan,random A=1.0,300,0,0.0
+RandomForest,hardened,Portscan,random A=2.0,300,0,0.0
+RandomForest,hardened,Portscan,grid A=2.0,300,0,0.0
+XGBoost,original,Botnet,none,300,0,0.0
+XGBoost,original,Botnet,random A=0.1,300,0,0.0
+XGBoost,original,Botnet,random A=0.25,300,0,0.0
+XGBoost,original,Botnet,random A=0.5,300,0,0.0
+XGBoost,original,Botnet,random A=1.0,300,0,0.0
+XGBoost,original,Botnet,random A=2.0,300,0,0.0
+XGBoost,original,Botnet,grid A=2.0,300,0,0.0
+XGBoost,original,DDoS,none,300,260,0.8666666666666667
+XGBoost,original,DDoS,random A=0.1,300,260,0.8666666666666667
+XGBoost,original,DDoS,random A=0.25,300,207,0.69
+XGBoost,original,DDoS,random A=0.5,300,207,0.69
+XGBoost,original,DDoS,random A=1.0,300,0,0.0
+XGBoost,original,DDoS,random A=2.0,300,0,0.0
+XGBoost,original,DDoS,grid A=2.0,300,0,0.0
+XGBoost,original,Portscan,none,300,0,0.0
+XGBoost,original,Portscan,random A=0.1,300,0,0.0
+XGBoost,original,Portscan,random A=0.25,300,0,0.0
+XGBoost,original,Portscan,random A=0.5,300,0,0.0
+XGBoost,original,Portscan,random A=1.0,300,0,0.0
+XGBoost,original,Portscan,random A=2.0,300,0,0.0
+XGBoost,original,Portscan,grid A=2.0,300,0,0.0
+XGBoost,hardened,Botnet,none,300,0,0.0
+XGBoost,hardened,Botnet,random A=0.1,300,0,0.0
+XGBoost,hardened,Botnet,random A=0.25,300,0,0.0
+XGBoost,hardened,Botnet,random A=0.5,300,0,0.0
+XGBoost,hardened,Botnet,random A=1.0,300,0,0.0
+XGBoost,hardened,Botnet,random A=2.0,300,0,0.0
+XGBoost,hardened,Botnet,grid A=2.0,300,0,0.0
+XGBoost,hardened,DDoS,none,300,211,0.7033333333333334
+XGBoost,hardened,DDoS,random A=0.1,300,211,0.7033333333333334
+XGBoost,hardened,DDoS,random A=0.25,300,211,0.7033333333333334
+XGBoost,hardened,DDoS,random A=0.5,300,211,0.7033333333333334
+XGBoost,hardened,DDoS,random A=1.0,300,1,0.0033333333333333335
+XGBoost,hardened,DDoS,random A=2.0,300,1,0.0033333333333333335
+XGBoost,hardened,DDoS,grid A=2.0,300,1,0.0033333333333333335
+XGBoost,hardened,Portscan,none,300,0,0.0
+XGBoost,hardened,Portscan,random A=0.1,300,0,0.0
+XGBoost,hardened,Portscan,random A=0.25,300,0,0.0
+XGBoost,hardened,Portscan,random A=0.5,300,0,0.0
+XGBoost,hardened,Portscan,random A=1.0,300,0,0.0
+XGBoost,hardened,Portscan,random A=2.0,300,0,0.0
+XGBoost,hardened,Portscan,grid A=2.0,300,0,0.0

@@ -1,0 +1,43 @@
+detector,state,attack,kept,n_common,recall,A,search
+LogReg,hardened,grid A=2.0,473,900,0.5255555555555556,2.0,grid
+LogReg,hardened,none,473,900,0.5255555555555556,0.0,clean
+LogReg,hardened,random A=0.1,473,900,0.5255555555555556,0.1,random
+LogReg,hardened,random A=0.25,473,900,0.5255555555555556,0.25,random
+LogReg,hardened,random A=0.5,473,900,0.5255555555555556,0.5,random
+LogReg,hardened,random A=1.0,473,900,0.5255555555555556,1.0,random
+LogReg,hardened,random A=2.0,473,900,0.5255555555555556,2.0,random
+LogReg,original,grid A=2.0,346,900,0.3844444444444444,2.0,grid
+LogReg,original,none,346,900,0.3844444444444444,0.0,clean
+LogReg,original,random A=0.1,346,900,0.3844444444444444,0.1,random
+LogReg,original,random A=0.25,346,900,0.3844444444444444,0.25,random
+LogReg,original,random A=0.5,346,900,0.3844444444444444,0.5,random
+LogReg,original,random A=1.0,346,900,0.3844444444444444,1.0,random
+LogReg,original,random A=2.0,346,900,0.3844444444444444,2.0,random
+RandomForest,hardened,grid A=2.0,300,900,0.3333333333333333,2.0,grid
+RandomForest,hardened,none,300,900,0.3333333333333333,0.0,clean
+RandomForest,hardened,random A=0.1,300,900,0.3333333333333333,0.1,random
+RandomForest,hardened,random A=0.25,300,900,0.3333333333333333,0.25,random
+RandomForest,hardened,random A=0.5,300,900,0.3333333333333333,0.5,random
+RandomForest,hardened,random A=1.0,300,900,0.3333333333333333,1.0,random
+RandomForest,hardened,random A=2.0,300,900,0.3333333333333333,2.0,random
+RandomForest,original,grid A=2.0,300,900,0.3333333333333333,2.0,grid
+RandomForest,original,none,300,900,0.3333333333333333,0.0,clean
+RandomForest,original,random A=0.1,300,900,0.3333333333333333,0.1,random
+RandomForest,original,random A=0.25,300,900,0.3333333333333333,0.25,random
+RandomForest,original,random A=0.5,300,900,0.3333333333333333,0.5,random
+RandomForest,original,random A=1.0,300,900,0.3333333333333333,1.0,random
+RandomForest,original,random A=2.0,300,900,0.3333333333333333,2.0,random
+XGBoost,hardened,grid A=2.0,1,900,0.0011111111111111111,2.0,grid
+XGBoost,hardened,none,211,900,0.23444444444444446,0.0,clean
+XGBoost,hardened,random A=0.1,211,900,0.23444444444444446,0.1,random
+XGBoost,hardened,random A=0.25,211,900,0.23444444444444446,0.25,random
+XGBoost,hardened,random A=0.5,211,900,0.23444444444444446,0.5,random
+XGBoost,hardened,random A=1.0,1,900,0.0011111111111111111,1.0,random
+XGBoost,hardened,random A=2.0,1,900,0.0011111111111111111,2.0,random
+XGBoost,original,grid A=2.0,0,900,0.0,2.0,grid
+XGBoost,original,none,260,900,0.28888888888888886,0.0,clean
+XGBoost,original,random A=0.1,260,900,0.28888888888888886,0.1,random
+XGBoost,original,random A=0.25,207,900,0.23,0.25,random
+XGBoost,original,random A=0.5,207,900,0.23,0.5,random
+XGBoost,original,random A=1.0,0,900,0.0,1.0,random
+XGBoost,original,random A=2.0,0,900,0.0,2.0,random
